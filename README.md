@@ -6,7 +6,7 @@ The back-end is a RESTful API, while the front-end is a simple representation of
 
 ## localhost/api/restaurants end point:
 
-Example:
+Example: This end point contains location data as well as a rating.
 
 [
     {
@@ -26,4 +26,27 @@ Example:
 
 ]
 
-The end point above contains location data as well as a rating.
+## localhost/api/userdata end point:
+
+Example: This end point contains users rating as well as blacklist preferences.
+
+[
+    {
+        "id": 1,
+        "user": 1,
+        "restaurant": 1,
+        "blacklisted": true,
+        "favorite": false
+    },
+    {
+        "id": 2,
+        "user": 1,
+        "restaurant": 2,
+        "blacklisted": true,
+        "favorite": false
+    }
+]
+
+
+
+
