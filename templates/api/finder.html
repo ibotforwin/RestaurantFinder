@@ -6,42 +6,31 @@
             <div class="container card">
                 <h1>List of restaurants.</h1>
                 {% for point in restaurants %}
-
                     {% for thing in point.userdata_set.all %}
-
-
-
-
                         <h4>Name: {{ point.name }}</h4>
                         <h4>Longitude: {{ point.longitude }}</h4>
                         <h4>Longitude: {{ point.latitude }}</h4>
-
-
                         {% if thing.favorite is False %}
                             <form action="{% url 'favorite' point.id %}" method="post">
                                 {% csrf_token %}
-
                                 <button name="favorite" type="submit" class="btn btn-success">FAVORITE</button>
                             </form>
                         {% endif %}
                         {% if thing.favorite is True %}
                             <form action="{% url 'unfavorite' point.id %}" method="post">
                                 {% csrf_token %}
-
                                 <button onclick="window.location.href = '/'" name="favorite" type="submit" class="btn btn-success">UNFAVORITE</button>
                             </form>
                         {% endif %}
                         {% if thing.blacklisted is False %}
                             <form action="{% url 'blacklist' point.id %}" method="post">
                                 {% csrf_token %}
-
                                 <button name="blacklist" type="submit" class="btn btn-danger">BLACKLIST</button>
                             </form>
                         {% endif %}
                         {% if thing.blacklisted is True %}
                             <form action="{% url 'unblacklist' point.id %}" method="post">
                                 {% csrf_token %}
-
                                 <button name="blacklist" type="submit" class="btn btn-danger">UNBLACKLIST</button>
                             </form>
                         {% endif %}

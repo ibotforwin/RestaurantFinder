@@ -2,48 +2,38 @@
 
 {% block content %}
     <div>
-    <h1>Restaurant Finder</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <div>
-            County:
-            {{ form.country }}
-        </div>
-        <div>
-            City:
-            {{ form.city }}
-        </div>
-
-        <button class="btn btn-primary" type="submit">Submit</button>
-    </form>
+        <h1>Restaurant Finder</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                County:
+                {{ form.country }}
+            </div>
+            <div>
+                City:
+                {{ form.city }}
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
     </div>
     <div>
-<h1>Blacklisted Restaurants</h1>
-            <ul class="list-group">
-    {% for point in userdata %}
-    {% if point.blacklisted is True %}
-
-  <li class="list-group-item">Restaurant Name: {{ point.restaurant.name }}</li>
-
-
-
-        {% endif %}
-    {% endfor %}
-    </ul>
+        <h1>Blacklisted Restaurants</h1>
+        <ul class="list-group">
+            {% for point in userdata %}
+                {% if point.blacklisted is True %}
+                    <li class="list-group-item">Restaurant Name: {{ point.restaurant.name }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
     </div>
-
-        <div>
-<h1>Favorite Restaurants</h1>
-            <ul class="list-group">
-    {% for point in userdata %}
-    {% if point.favorite is True %}
-
-  <li class="list-group-item">Restaurant Name: {{ point.restaurant.name }}</li>
-
-
-
-        {% endif %}
-    {% endfor %}
-    </ul>
+    <div>
+        <h1>Favorite Restaurants</h1>
+        <ul class="list-group">
+            {% for point in userdata %}
+                {% if point.favorite is True %}
+                    <li class="list-group-item">Restaurant Name: {{ point.restaurant.name }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
     </div>
 {% endblock %}
