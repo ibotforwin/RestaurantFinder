@@ -43,6 +43,7 @@ class UserDataViewSet(viewsets.ModelViewSet):
 
 def index(request):
     form = LocationForm()
+    userdata=UserData.objects.all()
     if request.method == 'POST':
         form = LocationForm(request.POST)
         print(form)
@@ -66,7 +67,7 @@ def index(request):
             print('enter else')
 
 
-    return render(request, 'api/index.html', {'form':form})
+    return render(request, 'api/index.html', {'form':form, 'userdata':userdata})
 
 
 
