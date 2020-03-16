@@ -11,10 +11,6 @@ class Restaurant(models.Model):
     # Country and city both have a many to one relationship to the Country model class.
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-
-
-
-
     latitude=models.FloatField(max_length=32, default=0)
     longitude=models.FloatField(max_length=32, default=0)
     rating=models.FloatField()
