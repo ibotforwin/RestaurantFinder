@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div>
+        <h1>List of restaurants.</h1>
+        {% for point in restaurants %}
+
+                <h4>Name: {{ point.name }}</h4>
+                <h4>Longitude: {{ point.longitude }}</h4>
+                <h4>Longitude: {{ point.latitude }}</h4>
+                <hr/>
+
+        {% endfor %}
+    </div>
+{% endblock %}

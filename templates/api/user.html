@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div>
+        <h1>These are black listed.</h1>
+        {% for point in user_data %}
+            {% if point.blacklisted is True %}
+                <h4>Name: {{ point.restaurant.name }}</h4>
+                <h4>Status (Blacklisted?): {{ point.blacklisted }}</h4>
+                <hr/>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
